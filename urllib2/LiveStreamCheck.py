@@ -1,6 +1,6 @@
 """
-Currently not working, Still trying to figure out what to grab and check for. Alot of unecessary things are in the code
-such as writing the html to a document. Plan to clean it up later
+Currently not working. Still trying to figure out what to grab and check for. Alot of unecessary things are in the code
+such as writing the html to a document. Plan to clean it up later.
 """
 import urllib2
 import HTMLParser
