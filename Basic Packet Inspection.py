@@ -16,6 +16,9 @@ pcap = dpkt.pcap.Reader(f)
 try:
 	for ts, buf in pcap:
 		eth = dpkt.ethernet.Ethernet(buf)#unpacks ethernet frame
+		if not isinstance(eth.data, dpkt.ip.IP):#Checks if it is an ip packet
+			print "Non IPv4 packet: %s\n" % (eth.data.__class__.__name__)#If not prints its type
+			continue
 		ip = eth.data# grabs data from ethernet frame(ip packet)
 		src = socket.inet_ntoa(ip.src)#uses socket to grab source ip from ip packet
 		dst = socket.inet_ntoa(ip.dst)#uses socket to grab destination ip from ip packet
